@@ -1,0 +1,11 @@
+[build]
+  publish = "voxtranslate"
+  functions = "voxtranslate/netlify/functions"
+
+[[redirects]]
+  from = "/"
+  to = "/voxtranslate/"
+  status = 301
+
+[functions]
+  node_bundler = "esbuild"
