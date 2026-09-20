@@ -1,0 +1,20 @@
+services:
+  - type: web
+    name: voxtranslate-ai
+    runtime: python
+    rootDir: voxtranslate
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: OPENAI_API_KEY
+        sync: false
+      - key: OPENAI_TRANSLATE_MODEL
+        value: gpt-5.6-luna
+      - key: OPENAI_TRANSCRIBE_MODEL
+        value: gpt-4o-transcribe
+      - key: OPENAI_TTS_MODEL
+        value: gpt-4o-mini-tts
+      - key: OPENAI_TTS_VOICE
+        value: coral
+      - key: MAX_UPLOAD_MB
+        value: "50"
