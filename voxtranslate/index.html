@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>VoxTranslate AI — Voice, Transcript & Translation</title>
+<meta name="description" content="AI transcription, translation and natural voice generation in one workspace.">
+<link rel="stylesheet" href="/voxtranslate/styles.css">
+</head>
+<body>
+<header class="top"><a class="brand" href="#">VoxTranslate<span>AI</span></a><nav><a href="#workspace">Workspace</a><a href="#features">Features</a></nav></header>
+<main>
+<section class="hero"><div class="pill">AI VOICE WORKSPACE</div><h1>Speak once.<br><em>Understand everywhere.</em></h1><p>Transcribe audio, translate the transcript and generate a natural voice version — from one simple workspace.</p><a class="primary" href="#workspace">Start translating →</a></section>
+<section id="workspace" class="workspace">
+<div class="panel">
+<h2>1. Upload or record</h2>
+<label class="drop"><input id="audioFile" type="file" accept="audio/*,video/*"><strong>Choose audio/video</strong><span>MP3, WAV, M4A, MP4 and more</span></label>
+<div class="or">or</div>
+<button id="recordBtn" class="secondary">● Start microphone</button>
+<div id="recordStatus" class="status"></div>
+</div>
+<div class="panel">
+<h2>2. Translation</h2>
+<label>Target language<select id="targetLang"><option value="Hindi">Hindi</option><option value="English">English</option><option value="Spanish">Spanish</option><option value="French">French</option><option value="German">German</option><option value="Arabic">Arabic</option><option value="Chinese">Chinese</option><option value="Japanese">Japanese</option><option value="Portuguese">Portuguese</option><option value="Russian">Russian</option></select></label>
+<button id="runBtn" class="primary wide">Transcribe + Translate</button>
+<div id="progress" class="progress"></div>
+</div>
+</section>
+<section class="results">
+<div class="resultCard"><div class="resultHead"><h2>Original transcript</h2><button id="copyOriginal">Copy</button></div><pre id="original">Your transcript will appear here.</pre></div>
+<div class="resultCard"><div class="resultHead"><h2>Translation</h2><button id="copyTranslation">Copy</button></div><pre id="translation">Your translation will appear here.</pre><button id="speakBtn" class="secondary wide">🔊 Generate voice</button><audio id="player" controls hidden></audio></div>
+</section>
+<section id="features" class="features"><article><b>01</b><h3>High-quality speech recognition</h3><p>Built around OpenAI's current transcription models.</p></article><article><b>02</b><h3>Translation memory</h3><p>Keep original and translated text together for subtitles, support and content workflows.</p></article><article><b>03</b><h3>Creator-ready exports</h3><p>Designed for future SRT/VTT, dubbing, API and team features.</p></article></section>
+</main>
+<footer>VoxTranslate AI · Built as a deployment-ready MVP</footer>
+<script src="/voxtranslate/app.js"></script>
+</body></html>
