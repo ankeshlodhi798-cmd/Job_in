@@ -1,22 +1,44 @@
-# VoxTranslate AI
+# VoxTranslate AI — GitHub + FastAPI
 
-Deployment-ready MVP for AI transcription + translation + text-to-speech.
+AI transcription, translation and natural voice generation in one FastAPI application.
 
 ## Stack
-- Frontend: responsive HTML/CSS/JavaScript
-- Backend: Netlify Functions
-- AI: OpenAI transcription, Responses API translation, speech generation
-- Database: Supabase/Postgres
-- Hosting: Netlify
+- Frontend: HTML/CSS/JavaScript
+- Backend: Python + FastAPI
+- AI: OpenAI API
+- Source control: GitHub
+- Deployment option: Render (no Netlify required)
 
-## Deploy
-1. Connect this repository to Netlify.
-2. Set the site base directory to the repository root.
-3. Build command: leave empty.
-4. Publish directory: `voxtranslate`.
-5. Functions directory: `voxtranslate/netlify/functions`.
-6. Add the environment variables from `.env.example`.
-7. In Supabase, run `supabase/schema.sql`.
-8. Never put OPENAI_API_KEY or SUPABASE_SERVICE_ROLE_KEY in frontend JavaScript.
+## Run locally
 
-The app is an MVP foundation. For production scale, add authentication, rate limiting, upload-size limits, usage quotas, SRT/VTT export and a queue for long files.
+```bash
+cd voxtranslate
+python -m venv .venv
+# Windows: .venv\\Scripts\\activate
+# macOS/Linux: source .venv/bin/activate
+pip install -r requirements.txt
+```
+
+Create a `.env` file from `.env.example` and add your OpenAI API key.
+
+Start the server:
+
+```bash
+uvicorn main:app --reload --port 8000
+```
+
+Open `http://127.0.0.1:8000`.
+
+## Production
+
+GitHub stores the code; GitHub Pages cannot run the Python/FastAPI backend. Deploy this same repository/folder to a Python host such as Render and add `OPENAI_API_KEY` as a server-side environment variable.
+
+Never put the OpenAI API key in `app.js` or any browser-visible file.
+
+## API
+- GET `/api/health`
+- POST `/api/transcribe`
+- POST `/api/translate`
+- POST `/api/speak`
+
+The default translation model is `gpt-5.6-luna`; change it with `OPENAI_TRANSLATE_MODEL` if needed.
